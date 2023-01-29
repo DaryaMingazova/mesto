@@ -1,7 +1,6 @@
 .element {
+	box-sizing: border-box;
+	width: 282px;
 	display: flex;
 	flex-direction: column;
-	width: 282px;
-	box-sizing: border-box;
-
 }

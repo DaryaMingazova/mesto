@@ -11,13 +11,11 @@
 @import url(../blocks/profile/profile.css);
 @import url(../blocks/root/__profile/root__profile.css);
 @import url(../blocks/profile/__avatar/profile__avatar.css);
+@import url(../blocks/profile/__edit-button/profile__edit-button.css);
+@import url(../blocks/profile/__edit-icon/profile__edit-icon.css);
 @import url(../blocks/profile/__info/profile__info.css);
 @import url(../blocks/profile/__user-name/profile__user-name.css);
-@import url(../blocks/profile/__user-jop/profile__user-jop.css);
-
-@import url(../blocks/edit-profile/edit-profile.css);
-@import url(../blocks/edit-profile/__icon/edit-profile__icon.css);
-@import url(../blocks/profile/__edit-profile/profile__edit-profile.css);
+@import url(../blocks/profile/__user-job/profile__user-job.css);
 
 @import url(../blocks/add-button/add-button.css);
 @import url(../blocks/add-button/__icon/add-button__icon.css);
@@ -28,7 +26,6 @@
 @import url(../blocks/element/element.css);
 @import url(../blocks/root/__elements/root__elements.css);
 @import url(../blocks/element/__image/element__image.css);
-@import url(../blocks/element/__photo/element__photo.css);
 @import url(../blocks/element/__text/element__text.css);
 @import url(../blocks/element/__title/element__title.css);
 @import url(../blocks/element/__heart/element__heart.css);
@@ -39,10 +36,10 @@
 
 @import url(../blocks/popup/popup.css);
 @import url(../blocks/popup/_opened/popup_opened.css);
-@import url(../blocks/popup/__window/popup__window.css);
-@import url(../blocks/popup/__close-button/popup__close-button.css);
 @import url(../blocks/popup/__form/popup__form.css);
+@import url(../blocks/popup/__window/popup__window.css);
 @import url(../blocks/popup/__title/popup__title.css);
+@import url(../blocks/popup/__close-button/popup__close-button.css);
 @import url(../blocks/popup/__save-button/popup__save-button.css);
 @import url(../blocks/popup/__user-name/popup__user-name.css);
-@import url(../blocks/popup/__user-jop/popup__user-jop.css);
+@import url(../blocks/popup/__user-job/popup__user-job.css);

@@ -1,12 +1,12 @@
-const popupElement = document.querySelector('.popup'); //переменная всего popup
-const editProfile = document.querySelector('.edit-profile'); //переменная открыть редактирование профиля
-const closeButton = popupElement.querySelector('.popup__close-button'); //переменная закрыть редактирование
-const saveButton = document.querySelector('.popup__save-button'); //переменная кнопки сохранить
-const userName = document.querySelector('.profile__user-name'); //переменная касса имени профиля на странице
-const userJob = document.querySelector('.profile__user-job'); //переменная касса работы на странице
+const popupElement = document.querySelector('.popup'); //popup
+const editProfile = document.querySelector('.profile__edit-profile'); //открыть редактирование профиля
+const closeButton = popupElement.querySelector('.popup__close-button'); //закрыть редактирование
+const saveButton = document.querySelector('.popup__save-button'); //кнопка сохранить
+const userName = document.querySelector('.profile__user-name'); // имя профиля на странице
+const userJob = document.querySelector('.profile__user-job'); //поле 2 на странице
 
-let nameInput = document.querySelector('.popup__user-name'); // Воспользуйтесь инструментом .querySelector()
-let jobInput = document.querySelector('.popup__user-job'); // Воспользуйтесь инструментом .querySelector()
+	let nameInput = document.querySelector('.popup__user-name');
+	let jobInput = document.querySelector('.popup__user-job'); 
 
 
 function openPopup() {
