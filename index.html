@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Место</title>
+	<link rel="stylesheet" href="./pages/index.css">
+</head>
+<body class="root">
+	<header class="header root__header">
+		<img src="./images/header-logo.svg" alt="Логотип сайта" class="logo root__logo">
+	</header>
+
+	<section class="profile root__profile">
+		<img src="./images/avatar.jpg" alt="Аватар" class="profile__avatar">
+			<h1 class="profile__user-name">Жак-Ив Кусто</h1>
+			<p class="profile__user-jop">Исследователь океана</p>
+			<button type="button" class="edit-profile profile__edit-profile">
+				<img src="./images/icon-edit.svg" alt="Редактировать профиль" class="edit-profile__icon">
+			</button>
+		<button type="button" class="add-button profile__add-button">
+			<img src="./images/icon-add.svg" alt="Добавить" class="add-button__icon">
+		</button>
+	</section>
+
+	<section class="elements root__elements">
+		<div class="element">
+			<img class="element__image" src="https://images.unsplash.com/photo-1592194996308-7b43878e84a6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80" alt="Изображение карточки" class="element__photo">
+			<div class="element__text">
+				<h2 class="element__title">Котенок</h2>
+				<div class="element__heart"></div>
+			</div>
+		</div>
+
+		<div class="element">
+			<img class="element__image" src="https://images.unsplash.com/photo-1583795128727-6ec3642408f8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=757&q=80" alt="Изображение карточки" class="element__photo">
+			<div class="element__text">
+				<h2 class="element__title">Кошка</h2>
+				<div class="element__heart"></div>
+			</div>
+		</div>
+
+		<div class="element">
+			<img src="./images/kirill-pershin-1556355-unsplash.jpg" alt="Изображение карточки" class="element__photo">
+			<div class="element__text">
+				<h2 class="element__title">Домбай</h2>
+				<div class="element__heart"></div>
+			</div>
+		</div>
+
+		<div class="element">
+			<img src="./images/kirill-pershin-1404681-unsplash.jpg" alt="Изображение карточки" class="element__photo">
+			<div class="element__text">
+				<h2 class="element__title">Гора Эльбрус</h2>
+				<div class="element__heart"></div>
+			</div>
+		</div>
+
+		<div class="element">
+			<img src="./images/kirill-pershin-1556355-unsplash.jpg" alt="Изображение карточки" class="element__photo">
+			<div class="element__text">
+				<h2 class="element__title">Домбай</h2>
+				<div class="element__heart"></div>
+			</div>
+		</div>
+
+		<div class="element">
+			<img src="./images/kirill-pershin-1088404-unsplash.jpg" alt="Изображение карточки" class="element__photo">
+			<div class="element__text">
+				<h2 class="element__title">Карачаево-Черкессия</h2>
+				<div class="element__heart"></div>
+			</div>
+		</div>
+	</section>
+
+	<footer class="footer root__footer">
+		<p class="footer__copyright">&#64; 2023 Mesto Russia</p>
+	</footer>
+
+	<div class="popup popup_opened">
+		<section class="popup__window">
+			<button class="popup__close-button"></button>
+			<form class="popup__form">
+				<h3 class="popup__title">Редактировать профиль</h3>
+				<input type="text" name="user-name" class="popup__user-name">
+				<input type="text" name="user-jop" class="popup__user-jop">
+				<button type="submit" class="popup__save-button">Сохранить</button>
+			</form>
+		</section>
+	</div>
+	<script src="./scripts/index.js"></script>
+</body>
+</html>

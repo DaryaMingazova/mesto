@@ -1,17 +1,22 @@
 # Проект: Место
+### Описание
+Интерактивная страница, куда можно добавлять фотографии, удалять их и ставить лайки.
 
-### Обзор
 
-* Figma
-* Картинки
+### Технологии:
++ HTML5
++ CCS
++ JavaScript
++ Адаптивная верстка (десктопы, планшеты, мобильные устройства)
++ Flexbox
++ Grid Layout
++ Позиционирование
++ Медиазапросы
 
-**Figma**
+## Чеклист:
+[Чеклист для самопроверки](https://code.s3.yandex.net/web-developer/checklists-pdf/new-program/checklist-4.pdf)
 
-* [Ссылка на макет в Figma](https://www.figma.com/file/2cn9N9jSkmxD84oJik7xL7/JavaScript.-Sprint-4?node-id=0%3A1)
+## Ссылки:
+- [Макет](https://www.figma.com/file/2cn9N9jSkmxD84oJik7xL7/JavaScript.-Sprint-4?node-id=0%3A1)
+- [Сайт](https://daryamingazova.github.io/mesto/index.html)
 
-**Картинки**
-
-Доставать картинки предстоит из Фигмы. Это расхожая практика, поэтому полезно потренироваться.
-Не забудьте [оптимизировать картинки](https://tinypng.com/), чтобы ваш сайт загружался быстрее.
-
-Удачи!
