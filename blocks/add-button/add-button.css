@@ -7,6 +7,7 @@
 	box-sizing: border-box;
 	background-color: #000000;
 	grid-area: add-button;
+	cursor: pointer;
 	
 }
 
