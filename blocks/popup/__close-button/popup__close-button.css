@@ -7,6 +7,11 @@
 	cursor: pointer;
 	border: none;
 	background: none;
+	transition: 0.3s ease;
+}
+
+.profile__add-button:hover {
+  opacity: 0.6;
 }
 
 .popup__close-button::before {

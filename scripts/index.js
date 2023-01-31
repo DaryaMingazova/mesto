@@ -10,11 +10,11 @@ const userJob = document.querySelector('.profile__user-job'); //поле 2 на 
 
 
 function openPopup() {
-	popupElement.classList.remove('popup_opened');
+	popupElement.classList.remove('popup_closed');
 }
 
 function closePopup() {
-	popupElement.classList.add('popup_opened');
+	popupElement.classList.add('popup_closed');
 }
 
 editProfile.addEventListener('click', openPopup)
