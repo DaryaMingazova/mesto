@@ -10,9 +10,17 @@
 	grid-area: edit-profile;
 }
 
+
+@media (max-width: 680px) {
+	.profile__edit-button {
+		margin-top:  21px;
+	}
+}
+
 @media (max-width: 580px) {
 	.profile__edit-button {
 		width: 18px;
 		height: 18px;
+		margin-top:  25px;
 	}
 }
