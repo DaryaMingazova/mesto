@@ -8,6 +8,8 @@
 	background: none;
 	cursor: pointer;
 	grid-area: edit-profile;
+	align-items: center;
+  justify-content: center;
 }
 
 
