@@ -2,3 +2,11 @@
 	margin: auto;
 	width: 10px;
 }
+
+@media (max-width: 580px) {
+	.profile__edit-icon {
+		margin-left:  -2px;
+		height: 7.5px;
+		width: 7.5px;
+	}
+}

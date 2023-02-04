@@ -16,3 +16,9 @@
 		font-size: 27px;
 	}
 }
+@media (max-width: 580px) {
+	.profile__user-name {
+		margin-top: 0;
+		
+	}
+}
