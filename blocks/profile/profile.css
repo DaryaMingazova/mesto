@@ -1,40 +1,16 @@
 .profile {
-	max-width: 880px;
-	height: 120px;
-	display: grid;
-	grid-template-areas: 
-	"profile__avatar profile__user-name edit-profile add-button"
-	"profile__avatar profile__user-job edit-profile add-button";
-	grid-template-columns: 150px 312px 1fr 150px;
-	grid-template-rows: 72px 1fr;
+  padding-top: 40px;
+  padding-bottom: 50px;
+  display: grid;
+  grid-template-columns: max-content 1fr max-content;
+  align-items: center;
 }
 
-
-@media (max-width: 740px) {
-	.profile {
-		max-width: 581px;
-		height: 190px;
-		grid-template-areas: 
-		"profile__avatar profile__user-name edit-profile"
-		"profile__avatar profile__user-job edit-profile"
-		"add-button add-button add-button";
-		grid-template-columns: 150px 312px 1fr;
-		grid-template-rows: 90px 30px 70px;
-	}
+@media screen and (max-width: 659px) {
+  .profile {
+    padding-top: 42px;
+    padding-bottom: 36px;
+    grid-template-columns: minmax(auto, 480px);
+    justify-content: center;
+  }
 }
-
-
-@media (max-width: 680px) {
-	.profile {
-		height: 286px;
-		width: 282px;
-		grid-template-areas: 
-		"profile__avatar profile__avatar profile__avatar"
-		"null profile__user-name edit-profile"
-		"profile__user-job profile__user-job profile__user-job"
-		"add-button add-button add-button";
-		grid-template-columns: 1fr 189px 1fr;
-		grid-template-rows: 140px 1fr 1fr 50px;
-	}
-}
-

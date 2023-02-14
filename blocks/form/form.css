@@ -1,0 +1,20 @@
+.form {
+  padding: 34px 36px 37px;
+  width: 430px;
+  min-height: 330px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border-radius: 10px;
+  box-sizing: border-box;
+  background-color: #FFFFFF;
+  box-shadow: 0px 0px 25px rgba(0, 0, 0, .15);
+}
+
+@media screen and (max-width: 659px) {
+  .form {
+    padding: 25px 22px;
+    width: 282px;
+    min-height: 322px;
+  }
+}

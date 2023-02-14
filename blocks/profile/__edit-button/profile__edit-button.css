@@ -1,30 +1,33 @@
 .profile__edit-button {
-	width: 24px;
-	height: 24px;
-	margin-top:  38px;
+  padding: 0;
+  margin-bottom: 9px;
+  width: 24px;
+  height: 24px;
+  background: url(../../../images/prifile-edit-icon.svg) center/10px no-repeat transparent;
   border: 1px solid #FFFFFF;
-  display: flex;
-	box-sizing: border-box;
-	background: none;
-	cursor: pointer;
-	grid-area: edit-profile;
-	align-items: center;
-  justify-content: center;
+  box-sizing: border-box;
+  transition: opacity .1s linear;
+  cursor: pointer;
 }
 
-
-@media (max-width: 680px) {
-	.profile__edit-button {
-		margin-top:  21px;
-		margin-left:  10px;
-	}
+.profile__edit-button:hover {
+  opacity: .6;
 }
 
-@media (max-width: 580px) {
-	.profile__edit-button {
-		width: 18px;
-		height: 18px;
-		margin-top:  15px;
-		margin-left:  10px;
-	}
+@media screen and (max-width: 767px) {
+  .profile__edit-button {
+    margin-bottom: 7px;
+    width: 20px;
+    height: 20px;
+    background-size: 9px;
+  }
+}
+
+@media screen and (max-width: 659px) {
+  .profile__edit-button {
+    margin-bottom: 5px;
+    width: 18px;
+    height: 18px;
+    background-size: 8px;
+  }
 }

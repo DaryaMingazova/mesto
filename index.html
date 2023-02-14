@@ -1,93 +1,94 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Место</title>
-	<link rel="stylesheet" href="./pages/index.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mesto</title>
+  <link rel="stylesheet" href="./pages/index.css">
 </head>
-<body class="root">
-	<header class="header root__header">
-		<img src="./images/header-logo.svg" alt="Логотип сайта" class="logo root__logo">
-	</header>
 
-	<section class="profile root__profile">
-		<img src="./images/avatar.jpg" alt="Аватар" class="profile__avatar">
-			<h1 class="profile__user-name">Жак-Ив Кусто</h1>
-			<p class="profile__user-job">Исследователь океана</p>
-			<button type="button" class="profile__edit-button profile__edit-profile">
-				<img src="./images/icon-edit.svg" alt="Редактировать профиль" class="profile__edit-icon">
-			</button>
-		<button type="button" class="add-button profile__add-button">
-			<img src="./images/icon-add.svg" alt="Добавить" class="add-button__icon">
-		</button>
-	</section>
+<body class="page">
 
-	<section class="elements root__elements">
-		<div class="element">
-			<img class="element__image" src="./images/cat.jpg" alt="Изображение карточки">
-			<div class="element__text">
-				<h2 class="element__title">Котенок</h2>
-				<button aria-label="Поставить лайк" type="button" class="element__heart"></button>
-			</div>
-		</div>
+  <div class="page__container">
 
-		<div class="element">
-			<img class="element__image" src="./images/cat2.jpg" alt="Изображение карточки">
-			<div class="element__text">
-				<h2 class="element__title">Кошка</h2>
-				<button aria-label="Поставить лайк" type="button" class="element__heart"></button>
-			</div>
-		</div>
+    <header class="header page__section">
+      <img class="header__logo" src="./images/logo-white.svg" alt="Логотип сайта">
+    </header>
 
-		<div class="element">
-			<img class="element__image" src="./images/cats.jpg" alt="Изображение карточки">
-			<div class="element__text">
-				<h2 class="element__title">Котята</h2>
-				<button aria-label="Поставить лайк" type="button" class="element__heart"></button>
-			</div>
-		</div>
+    <main class="content">
 
-		<div class="element">
-			<img class="element__image" src="./images/littleCat.jpg" alt="Изображение карточки">
-			<div class="element__text">
-				<h2 class="element__title">Маленький котенок</h2>
-				<button aria-label="Поставить лайк" type="button" class="element__heart"></button>
-			</div>
-		</div>
+      <section class="profile page__section">
+        <img class="profile__avatar" src="./images/profile-avatar.jpg" alt="Фотография профиля">
+        <div class="profile__info">
+          <h1 class="profile__title">Жак-Ив Кусто</h1>
+          <button class="profile__edit-button" type="button" aria-label="Редактировать профиль"></button>
+          <p class="profile__subtitle">Исследователь океана</p>
+        </div>
+        <button class="profile__create-button" type="button" aria-label="Создать новое место"></button>
+      </section>
 
-		<div class="element">
-			<img class="element__image" src="./images/butterflyWithCat.jpg" alt="Изображение карточки">
-			<div class="element__text">
-				<h2 class="element__title">Кошка с бабочкой</h2>
-				<button aria-label="Поставить лайк" type="button" class="element__heart"></button>
-			</div>
-		</div>
+      <section class="places page__section" aria-label="Страница профиля">
+        <ul class="elements page__reset-list">
+        </ul>
+      </section>
 
-		<div class="element">
-			<img class="element__image" src="./images/sleepCat.jpg" alt="Изображение карточки">
-			<div class="element__text">
-				<h2 class="element__title">Спящая кошка</h2>
-				<button aria-label="Поставить лайк" type="button" class="element__heart"></button>
-			</div>
-		</div>
-	</section>
+    </main>
 
-	<footer class="footer root__footer">
-		<p class="footer__copyright">&#64; 2023 Mesto Russia</p>
-	</footer>
+    <footer class="footer page__section">
+      <p class="footer__copyright">&copy; 2023 Mesto Russia</p>
+    </footer>
 
-	<div class="popup popup_closed">
-		<section class="popup__window">
-			<button class="popup__close-button"></button>
-			<form class="popup__form">
-				<h3 class="popup__title">Редактировать профиль</h3>
-				<input type="text" name="user-name" class="popup__user-name">
-				<input type="text" name="user-job" class="popup__user-job">
-				<button type="submit" class="popup__save-button">Сохранить</button>
-			</form>
-		</section>
-	</div>
-	<script src="./scripts/index.js"></script>
+  </div>
+<!--редактирование профиля-->
+  <div class="popup popup_edit">
+    <div class="popup__container">
+      <form class="form" action="#" name="user-profile">
+        <h2 class="form__title">Редактировать профиль</h2>
+        <fieldset class="form__fieldset">
+          <input class="form__field" type="text" id="user-name" name="user-name" placeholder="Имя" required>
+          <input class="form__field" type="text" id="user-job" name="user-job" placeholder="О себе" required>
+        </fieldset>
+        <button class="form__submit-button" type="submit">Сохранить</button>
+      </form>
+      <button class="popup__close-icon" type="button" aria-label="Закрыть"></button>
+    </div>
+  </div>
+<!--добавление карточки-->
+  <div class="popup popup_add">
+    <div class="popup__container">
+      <form class="form" action="#" name="new-place">
+        <h2 class="form__title">Новое место</h2>
+        <fieldset class="form__fieldset">
+          <input class="form__field" type="text" id="place-name" name="place-name" placeholder="Название" required>
+          <input class="form__field" type="url" id="place-img" name="place-img" placeholder="Ссылка на картинку" required>
+        </fieldset>
+        <button class="form__submit-button" type="submit">Создать</button>
+      </form>
+      <button class="popup__close-icon" type="button" aria-label="Закрыть"></button>
+    </div>
+  </div>
+<!--открытие увеличенной картинки-->
+  <div class="popup popup_image">
+    <div class="popup__container popup__container_image">
+     <figure class="opened-image">
+        <img class="opened-image__image" src="#" alt="">
+        <figcaption class="opened-image__caption"></figcaption>
+      </figure>
+      <button class="popup__close-icon" type="button" aria-label="Закрыть"></button>
+   </div>
+  </div>
+<!--шаблон карточки-->
+  <template class="card-template">
+    <li class="element">
+      <img class="element__image" src="" alt="">
+      <h2 class="element__title"></h2>
+      <button class="element__like-icon" type="button" aria-label="Мне нравится"></button>
+      <button class="element__trash-icon" type="button" aria-label="Удалить место"></button>
+    </li>
+  </template>
+
+  <script src="./scripts/cards.js"></script>
+  <script src="./scripts/script.js"></script>
 </body>
+
 </html>
