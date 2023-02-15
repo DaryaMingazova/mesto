@@ -1,14 +1,14 @@
-
 const profile = document.querySelector('.profile');
-const editButton = profile.querySelector('.profile__edit-button');//Редактировать профиль
-const addButton = profile.querySelector('.profile__create-button');//Создать новое место
+const buttonEdit = profile.querySelector('.profile__edit-button');//Редактировать профиль
+const buttonAdd = profile.querySelector('.profile__create-button');//Создать новое место
 
 const popupEdit = document.querySelector('.popup_edit');//редактирование профиля
 const popupAdd = document.querySelector('.popup_add');//добавление новой карточки
 const popupImage = document.querySelector('.popup_image');
-const popupEditClose = popupEdit.querySelector('.popup__close-icon');
-const popupAddClose = popupAdd.querySelector('.popup__close-icon');// имя профиля в попапе
-const popupImageClose = popupImage.querySelector('.popup__close-icon');//второе поле  в попапе
+
+const buttonPopupEditClose = popupEdit.querySelector('.popup__close-icon');
+const buttonPopupAddClose = popupAdd.querySelector('.popup__close-icon');// имя профиля в попапе
+const buttonPopupImageClose = popupImage.querySelector('.popup__close-icon');//второе поле  в попапе
 
 //форма-редактирование профиля
 const formProfile = popupEdit.querySelector('.form');
@@ -42,9 +42,7 @@ function closePopup(popup) {
   popup.classList.remove('popup_opened');
 }
 
-
 // Открытие модального окна с картинкой
-
 function handlePreviewImage(popupImageData) {
   openPopup(popupImage);
 
@@ -52,15 +50,11 @@ function handlePreviewImage(popupImageData) {
   imageElement.alt = popupImageData.name;
   imageCaption.textContent = popupImageData.name;
 }
-//и закрытие модального окна с картинкой
-popupImageClose.addEventListener('click', () => {
-  closePopup(popupImage);
-});
-
 
 // Cоздание карточки
-
 function createCard(cardData) {
+  const cardTemplate = document.querySelector('.card-template').content.querySelector('.element');
+
   const cardElement = cardTemplate.cloneNode(true);
   const elementTitle = cardElement.querySelector('.element__title');
   const elementImage = cardElement.querySelector('.element__image');
@@ -80,13 +74,6 @@ function createCard(cardData) {
   });
 
   elementImage.addEventListener('click', evt => {
-    const targetImage = evt.target;
-
-    const cardData = {
-      name: targetImage.alt,
-      link: targetImage.src
-    };
-
     handlePreviewImage(cardData);
   });
 
@@ -102,26 +89,14 @@ function addCard(cardData, cardContainer, newCard) {
     cardContainer.append(card);
   }
 }
+
 // Шесть карточек «из коробки»
 // Карточки из cards.js по макету
 initialCards.forEach(item => {
   addCard(item, cardsList, false);
 });
-// Модальное окно редактирования профиля
-
-editButton.addEventListener('click', () => {
-  openPopup(popupEdit);
-
-  userNameInput.value = profileTitle.textContent;
-  userJobInput.value = profileSubtitle.textContent;
-});
-
-popupEditClose.addEventListener('click', () => {
-  closePopup(popupEdit);
-});
 
 // Отправка формы редактирования профиля
-
 function handleProfileFormSubmit(evt) {
   evt.preventDefault();
 
@@ -130,21 +105,7 @@ function handleProfileFormSubmit(evt) {
 
   closePopup(popupEdit);
 }
-
-formProfile.addEventListener('submit', handleProfileFormSubmit);
-
-
-// Модальное окно добавления карточки
-addButton.addEventListener('click', () => {
-  openPopup(popupAdd);
-});
-
-popupAddClose.addEventListener('click', () => {
-  closePopup(popupAdd);
-});
-
 // Отправка формы добавления карточки
-
 function handleCardFormSubmit(evt) {
   evt.preventDefault();
 
@@ -157,5 +118,31 @@ function handleCardFormSubmit(evt) {
 
   formCard.reset();
 }
+//закрытие модального окна с картинкой
+buttonPopupImageClose.addEventListener('click', () => {
+  closePopup(popupImage);
+});
 
+// Модальное окно редактирования профиля
+buttonEdit.addEventListener('click', () => {
+  openPopup(popupEdit);
+
+  userNameInput.value = profileTitle.textContent;
+  userJobInput.value = profileSubtitle.textContent;
+});
+
+buttonPopupEditClose.addEventListener('click', () => {
+  closePopup(popupEdit);
+});
+
+// Модальное окно добавления карточки
+buttonAdd.addEventListener('click', () => {
+  openPopup(popupAdd);
+});
+
+buttonPopupAddClose.addEventListener('click', () => {
+  closePopup(popupAdd);
+});
+
+formProfile.addEventListener('submit', handleProfileFormSubmit);
 formCard.addEventListener('submit', handleCardFormSubmit);
