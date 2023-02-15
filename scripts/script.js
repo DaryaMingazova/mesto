@@ -34,7 +34,6 @@ const imageElement = popupImage.querySelector('.opened-image__image');
 
 // Открытие модального окна
 function openPopup(popup) {
-  popup.classList.add('popup_animated');
   popup.classList.add('popup_opened');
 }
 //закрытие модального окна
