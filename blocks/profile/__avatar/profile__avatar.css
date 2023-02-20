@@ -1,16 +1,6 @@
 .profile__avatar {
-  width: 120px;
   height: 120px;
-  margin-right: 30px;
+  width: 120px;
   border-radius: 50%;
-  object-fit: cover;
-  object-position: center;
-}
-
-@media screen and (max-width: 659px) {
-  .profile__avatar {
-    margin-right: 0;
-    margin-bottom: 26px;
-    justify-self: center;
-  }
+  background-color: #C4C4C4;
 }
