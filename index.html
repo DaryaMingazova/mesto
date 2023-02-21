@@ -37,7 +37,7 @@
     
   <div class="popup popup_type_edit-profile">
     <div class="popup__container">
-      <button type="button" class="popup__close" id="edit-profile-close" aria-label="Закрыть окно"></button>
+      <button type="button" class="popup__close popup__edit-profile-close" aria-label="Закрыть окно"></button>
       <h2 class="popup__title">Редактировать профиль</h2>
       <form class="form" name="edit-profile" id="form-profile" novalidate>
         <input class="form__input form__input_type_name" 
@@ -60,7 +60,7 @@
     <div class="popup__container">
       <button type="button" class="popup__close popup__button-close"></button>
       <h2 class="popup__title">Новое место</h2>
-      <form name="add-element" class="form" id="form-card" novalidate>
+      <form name="add-element" class="form form-card" novalidate>
         <input type="text" name="element-name" id="element-name" 
           placeholder="Название" class="form__input form__input_type_place" 
           value="" minlength="2" maxlength="30" required>
@@ -71,10 +71,10 @@
       </form>
     </div>
   </div>
-    
+     
   <div class="popup popup_type_image">
     <figure class="figure">
-      <button class="popup__close popup__button-close" type="button" id="closeImage"></button>
+      <button class="popup__close  popup__close-image" type="button" id="closeImage"></button>
       <img src="#" alt="#" class="figure__image"/>
       <figcaption class="figure__caption"></figcaption>
     </figure>
