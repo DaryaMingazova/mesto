@@ -1,14 +1,14 @@
 .element__items {
-  padding: 25px 21px;
-  border-radius: 0 0 10px 10px;
-  background-color: #FFFFFF;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+    padding: 25px 21px;
+    border-radius: 0 0 10px 10px;
+    background-color: #FFFFFF;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 @media screen and (max-width: 767px) {
-  .element__items {
-    padding: 23px 21px;
-  }
+    .element__items {
+        padding: 23px 21px;
+    }
 }

@@ -1,4 +1,7 @@
 .popup__close {
+    width: 36px;
+    height: 36px;
+    cursor: pointer;
     position: absolute;
     top: -35px;
     right: -40px;
@@ -6,9 +9,6 @@
     background-color: transparent;
     background-position: center;
     border: none;
-    width: 36px;
-    height: 36px;
-    cursor: pointer;
     transition: opacity linear 1s;
 }
 

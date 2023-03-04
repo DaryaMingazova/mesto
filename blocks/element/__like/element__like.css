@@ -1,13 +1,13 @@
 .element__like {
-  width: 23px;
-  margin: 25px auto 21px;
-  background-color: #FFFFFF;
-  background: url(../../../image/heart.svg) transparent no-repeat center/contain;
-  outline: none;
-  border: none;
-  cursor: pointer;
+    width: 23px;
+    margin: 25px auto 21px;
+    background-color: #FFFFFF;
+    background: url(../../../image/heart.svg) transparent no-repeat center/contain;
+    outline: none;
+    border: none;
+    cursor: pointer;
 }
 
 .element__like:hover {
-  opacity: 0.5;
+    opacity: 0.5;
  }
