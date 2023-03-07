@@ -19,20 +19,20 @@ const formAddCard = popupAddCard.querySelector('.form');
 const inputList = formAddCard.querySelectorAll('.form__input');
 
 const buttonOpenPopupProfile = document.querySelector('.profile__edit-button');
-const buttonClosePopupProfile = document.querySelector('.popup__button-close');
 const buttonOpenAddCard = document.querySelector('.profile__add-button');
-const buttonClosePopupAdd = document.querySelector('.popup__button-close');
 const buttonAddCardSave = popupAddCard.querySelector('.form__button');
+
+// находим все крестики проекта по универсальному селектору
+const closeButtons = document.querySelectorAll('.popup__close');
 
 const esc = 'Escape';
 
 // Функция закрытия по оверлею 
 const setOverlayListener = function(evt) {
-   const openedPopup = document.querySelector('.popup_opened');
-       if(evt.target === openedPopup) {
-           closePopup(openedPopup);
-       }
+   if(evt.target.classList.contains('popup_opened')) {
+      closePopup(evt.target);
    }
+}
 
 // Функция закрытия по кнопке Escape
 const setEscListener = function(evt) {
@@ -47,25 +47,26 @@ initialCards.forEach (function (item){
   renderCard(item.link, item.name);
 })
 
-function renderCard(link, name) {
-  const cardTemplate = new Card('#template-card', name, link);
+function generateCard(link, name) {
+   const cardElement = new Card('#template-card', name, link, openPopup);
+   return cardElement.createCard();
+ }
 
-  cardsContainer.prepend(cardTemplate.createCard());
+function renderCard(link, name) {
+  const cardTemplate = generateCard(link, name);
+  cardsContainer.prepend(cardTemplate);
+  closePopup(popupAddCard);
 }
+
 
 // Добавления карточек через инпут попапа
 function handleCardFormSubmit(evt) {
    evt.preventDefault();
    renderCard(inputAddCardLink.value, inputAddCardName.value);
-   const resetForm = new FormValidator (config, formAddCard);
-   resetForm.resetForm();
    closePopup(popupAddCard);
-   buttonAddCardSave.disabled = true;
-}
 
-const enableValidation = (config, popup) => {
-   const formValidatorEditProfile = new FormValidator(config, popup);
-   formValidatorEditProfile.enableValidation();
+   //Валидация карточки
+   formAddCardValidator.toggleButtonState();
 }
 
 // Открытие окна редактирования профиля
@@ -73,8 +74,6 @@ function openEditPopup() {
   openPopup(popupEditProfile)
   nameInput.value = profileName.textContent;
   jobInput.value = profileText.textContent;
-
-  enableValidation(config, popupEditProfile);
 }
 
 // Изменение данных профиля 
@@ -83,12 +82,6 @@ function handleProfileFormSubmit(evt) {
   profileName.textContent = nameInput.value;
   profileText.textContent = jobInput.value;
   closePopup(popupEditProfile);
-}
-
-function closeAddCardPopup() {
-   closePopup(popupAddCard);
-   const resetForm = new FormValidator (config, formAddCard);
-    resetForm.resetForm();
 }
 
 function openPopup(popup) {
@@ -109,26 +102,22 @@ popupFormProfile.addEventListener('submit', handleProfileFormSubmit);
 // Cлушатель кнопки открытия попапа редактирования профиля
 buttonOpenPopupProfile .addEventListener('click', openEditPopup);
 
-// Кнопка закрытия попапа редактирования профиля
-buttonClosePopupProfile.addEventListener('click', () => {
-   closePopup(popupEditProfile);
-});
-
 // Слушатель кнопки открытия попапа для добавления карточки
 buttonOpenAddCard.addEventListener('click', () => {
    openPopup(popupAddCard);
-    inputList.forEach((input) => {
-        input.addEventListener('keydown', () => {
-            enableValidation(config, popupAddCard);
-        })
-    })
 });
-
-// Слушатель кнопки закрытия попапа добавления карточки
-buttonClosePopupAdd.addEventListener('click', closeAddCardPopup);
 
 // Cлушатель отправки формы добавления карточки из попапа
 popupFormCard.addEventListener('submit', handleCardFormSubmit);
+
+//закрытие всех попапов
+// с окончанием `s` нужно обязательно, так как много кнопок
+closeButtons.forEach((button) => {
+  // находим 1 раз ближайший к крестику попап 
+  const popup = button.closest('.popup');
+  // устанавливаем обработчик закрытия на крестик
+  button.addEventListener('click', () => closePopup(popup));
+});
 
 const config = {
    formSelector: '.form',
@@ -138,4 +127,11 @@ const config = {
    errorClass: 'form__input-error_is-active'    
 }
 
-export {openPopup, closePopup};
+// валидация формы редактирования профиля
+const formEditProfileValidator = new FormValidator(config, popupFormProfile);
+formEditProfileValidator.enableValidation();
+// валидация формы добавления новой карточки
+const formAddCardValidator = new FormValidator(config, popupFormCard);
+formAddCardValidator.enableValidation();
+
+export {openPopup};

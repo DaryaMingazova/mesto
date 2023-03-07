@@ -1,15 +1,17 @@
-import { openPopup, closePopup } from './index.js';
+//import { openPopup} from './index.js';
 
 const popupFigure = document.querySelector('.popup_type_image');
 const popupFigureImage = popupFigure.querySelector('.figure__image');
 const popupFigureCaption = popupFigure.querySelector('.figure__caption');
-const buttonCloseImage = document.querySelector('.popup__close-image');
 
 class Card {
-    constructor(cardSelector, name, link) {
+    constructor(cardSelector, name, link, openPopup) {
         this._cardSelector = cardSelector;
         this._name = name;
         this._link = link
+        this._openPopup = openPopup;
+        this._element = this._getTemplate();
+        this._elementImage = this._element.querySelector('.element__image');
     }
 
     _getTemplate() {
@@ -19,14 +21,11 @@ class Card {
         return cardElement
     }
 
-    _openPopup() {
-        openPopup(popupFigure)
+    _openPopupCard() {
+        this._openPopup(popupFigure)
         popupFigureImage.src = this._link;
         popupFigureCaption.textContent = this._name;
-        popupFigureImage.alt = this._name;
-        buttonCloseImage.addEventListener('click', () => {
-            closePopup(popupFigure);
-        })
+        popupFigureImage.alt = this._name;    
     }
 
     _deleteCard() {
@@ -38,8 +37,8 @@ class Card {
     }
 
     _setEventListeners() {
-        this._element.querySelector('.element__image').addEventListener('click', () => {
-            this._openPopup();
+        this._elementImage.addEventListener('click', () => {
+            this._openPopupCard();
         })
         this._element.querySelector('.element__delete-button').addEventListener('click', () => {
             this._deleteCard();
@@ -50,16 +49,14 @@ class Card {
     }
 
     createCard() {
-        this._element = this._getTemplate();
-
-        const image = this._element.querySelector('.element__image');
         const title = this._element.querySelector('.element__text');
 
-        image.src = this._link;
-        image.alt = this._name;
+        this._elementImage.src = this._link;
+        this._elementImage.alt = this._name;
         title.textContent = this._name;
 
         this._setEventListeners();
+
 
         return this._element;
     }

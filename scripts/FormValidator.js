@@ -1,22 +1,24 @@
 class FormValidator {
-    constructor(config, formName) {
+    constructor(config, formElement) {
         this._config = config;
-        this._formName = formName;
+        this._formElement = formElement;
+        this._buttonElement = this._formElement.querySelector(this._config.submitButtonSelector);
+        this._inputList = Array.from(this._formElement.querySelectorAll(this._config.inputSelector));
     }
 
     _hideErrorMessage(inputElement) {
         const { inputErrorClass, errorClass } = this._config;
-        const errorElement = this._formName.querySelector(`#${inputElement.id}-error`);
+        const errorElement = this._formElement.querySelector(`#${inputElement.id}-error`);
     
-        inputElement.classList.remove(inputErrorClass);
-        errorElement.classList.remove(errorClass);
+        inputElement.classList.remove(this._config.inputErrorClass);
+        errorElement.classList.remove(this._config.errorClass);
     
         errorElement.textContent = ''
     }
 
     _showErrorMessage(inputElement) {
         const { inputErrorClass, errorClass } = this._config;
-        const errorElement = this._formName.querySelector(`#${inputElement.id}-error`);
+        const errorElement = this._formElement.querySelector(`#${inputElement.id}-error`);
     
         inputElement.classList.add(inputErrorClass);
         errorElement.classList.add(errorClass);
@@ -45,51 +47,37 @@ class FormValidator {
     }
 
     _toggleButtonState() {
-        const { inputSelector, submitButtonSelector } = this._config;
-        const buttonElement = this._formName.querySelector(submitButtonSelector);
-        const inputList = Array.from(this._formName.querySelectorAll(inputSelector));
-        if (this._hasInvalidInput(inputList)) {
-            buttonElement.disabled = true;
+        if (this._hasInvalidInput(this._inputList)) {
+            this._buttonElement.disabled = true;
         }
         else {
-            buttonElement.disabled = false;
+            this._buttonElement.disabled = false;
         }
     }
 
     _setEventListeners() {
-        const { inputSelector, submitButtonSelector, ...rest} = this._config;  
-        const inputList = Array.from(this._formName.querySelectorAll(inputSelector));
-        const buttonElement = this._formName.querySelector(submitButtonSelector);
-        this._toggleButtonState(inputList, buttonElement);
     
-        inputList.forEach((inputElement) => {
-            this._checkInputValidity(inputElement, rest);
+        this._toggleButtonState(this._inputList, this._buttonElement);
+    
+        this._inputList.forEach((inputElement) => {
+
             inputElement.addEventListener('input', () => {
-                this._checkInputValidity(inputElement, rest);
-                this._toggleButtonState(inputList, buttonElement);
+                this._checkInputValidity(inputElement, this._formElement);
+                this._toggleButtonState(this._inputList, this._buttonElement);
             })
         })
     }
 
     resetForm() {
-        const { inputSelector, submitButtonSelector, ...rest } = this._config;
-        this._formName.reset();
-        const inputList = Array.from(this._formName.querySelectorAll(inputSelector));
-        inputList.forEach((input) => {
-            this._hideErrorMessage(input, rest);
-            const inputList = Array.from(this._formName.querySelectorAll(inputSelector));
-            const buttonElement = this._formName.querySelector(submitButtonSelector);
-            this._toggleButtonState(inputList, buttonElement);
-        })
+      this._toggleButtonState(); //<== управляем кнопкой ==
+
+      this._inputList.forEach((inputElement) => {
+        this._hideError(inputElement) //<==очищаем ошибки ==
+      });
     }
 
     enableValidation() {
-        const { formSelector, ...rest} = this._config;
-        const formList = Array.from(document.querySelectorAll(formSelector));
-    
-        formList.forEach((formElement) => {
-            this._setEventListeners(formElement, rest);
-        })
+      this._setEventListeners();
     }
 }
 
