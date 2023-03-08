@@ -64,7 +64,8 @@ function handleCardFormSubmit(evt) {
    evt.preventDefault();
    renderCard(inputAddCardLink.value, inputAddCardName.value);
    closePopup(popupAddCard);
-
+   inputAddCardName.value = '';
+   inputAddCardLink.value = '';
    //Валидация карточки
    formAddCardValidator.toggleButtonState();
 }
