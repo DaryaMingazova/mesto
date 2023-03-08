@@ -7,7 +7,6 @@ class FormValidator {
     }
 
     _hideErrorMessage(inputElement) {
-        const { inputErrorClass, errorClass } = this._config;
         const errorElement = this._formElement.querySelector(`#${inputElement.id}-error`);
     
         inputElement.classList.remove(this._config.inputErrorClass);
@@ -17,11 +16,11 @@ class FormValidator {
     }
 
     _showErrorMessage(inputElement) {
-        const { inputErrorClass, errorClass } = this._config;
+
         const errorElement = this._formElement.querySelector(`#${inputElement.id}-error`);
     
-        inputElement.classList.add(inputErrorClass);
-        errorElement.classList.add(errorClass);
+        inputElement.classList.add(this._config.inputErrorClass);
+        errorElement.classList.add(this._config.errorClass);
     
         errorElement.textContent = inputElement.validationMessage;
     }
