@@ -11,7 +11,7 @@ import UserInfo from "../components/UserInfo.js";
 import PopupWithImage from "../components/PopupWithImage.js";
 
 
-/* Функции */
+
 // Заносим данные в форму попапа редактирования профиля
 function fillInEditProfileFormInputs({ username, job }) {
   nameInput.value = username;
@@ -29,7 +29,6 @@ const createCard = (data) => {
 };
 
 
-/* Профиль юзера */
 // создание экземпляра класса, отвечающего за отображение информации о пользователе
 const userInfo = new UserInfo({
   username: '.profile__title',
@@ -62,7 +61,7 @@ buttonOpenPopupProfile.addEventListener('click', () => {
 const formAddCardValidator = new FormValidator(config, popupFormCard);
 formAddCardValidator.enableValidation();
 
-/* Карточки с изображениями */
+
 // создание попапа с формой добавления новой карточки
 const addCardPopup = new PopupWithForm({
   popupSelector: '.popup_type_add-card',
@@ -88,7 +87,7 @@ const cardsList = new Section({
 }, '.elements');
 cardsList.renderItems();
 
-/* Попап просмотра изображения */
+// Попап просмотра изображения 
 const viewImagePopup = new PopupWithImage('.popup_type_image');
 viewImagePopup.setEventListeners();
 
