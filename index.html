@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./pages/index.css">
+    <link rel="stylesheet" href="./scripts/pages/index.css">
     <title>Место</title>
 </head>
 <body class="body">
@@ -22,14 +22,15 @@
         </section>
         <section class="elements">
             <template id="template-card">
-                <article class="element">
+                <li class="element">
                     <button type="button" class="element__delete-button" aria-label="Удалить пост"></button>
                     <img src="#" alt="#" class="element__image">
                     <h2 class="element__text"></h2>
                     <button type="button" class="element__like" aria-label="Мне нравиться"></button>
-                </article>
+                </li>
             </template>
         </section>
+        <section class="elements"></section>
     </main>
     <footer class="footer">
         <p class="footer__copyright">&copy; 2023 Mesto Russia</p>
@@ -83,9 +84,6 @@
         </figure>
     </div>
 
-<script src="./scripts/initial-сards.js"></script>
-<script type="module" src="./scripts/index.js"></script>
-<script type="module" src="./scripts/FormValidator.js"></script>
-<script type="module" src="./scripts/Card.js"></script>
+<script type="module" src="./scripts/pages/index.js"></script>
 </body>
 </html>
