@@ -33,7 +33,7 @@ const createCard = (data) => {
 // создание экземпляра класса, отвечающего за отображение информации о пользователе
 const userInfo = new UserInfo({
   username: '.profile__title',
-  job: '.profile__subtitle'
+  job: '.profile__description'
 });
 
 // создание попапа с формой редактирования профиля
