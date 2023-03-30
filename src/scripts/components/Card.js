@@ -14,7 +14,7 @@ export default class Card {
   
     // метод слушателя кнопки "лайк"
     _handleLikeCard() {
-      this._element.querySelector('.element__like').classList.toggle('element__like_active');
+      this._like.classList.toggle('element__like_active');
     }
   
     // метод слушателя кнопки "удалить"
@@ -32,8 +32,10 @@ export default class Card {
       this._element.querySelector('.element__delete-button').addEventListener('click', () => {
         this._handleDeleteCard();
       })
-      // слушатель кнопки лайк
-      this._element.querySelector('.element__like').addEventListener('click', () => {
+     
+      this._like = this._element.querySelector('.element__like');
+       // слушатель кнопки лайк
+      this._like.addEventListener('click', () => {
         this._handleLikeCard();
       })
     }
