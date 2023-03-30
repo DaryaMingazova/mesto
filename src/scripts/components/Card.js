@@ -14,8 +14,7 @@ export default class Card {
   
     // метод слушателя кнопки "лайк"
     _handleLikeCard() {
-      const likeBtn = this._element.querySelector('.element__like');
-      likeBtn.classList.toggle('element__like_active');
+      this._element.querySelector('.element__like').classList.toggle('element__like_active');
     }
   
     // метод слушателя кнопки "удалить"
