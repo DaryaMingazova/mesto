@@ -42,7 +42,7 @@ const editProfilePopup = new PopupWithForm({
   handleFormSubmit: (dataForm) => {
     userInfo.setUserInfo({
       username: dataForm.username,
-      job: dataForm.job
+      job: dataForm.userjob
     });
     editProfilePopup.close();
   }
