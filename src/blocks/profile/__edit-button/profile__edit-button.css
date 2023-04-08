@@ -3,11 +3,11 @@
   background-size: contain;
   background-repeat: no-repeat;
   border: none;
-  width: 24px;
-  height: 24px;
   margin-top: 15px;
   cursor: pointer;
   transition: 0.3s ease;
+  width: 24px;
+  height: 24px;
 }
 
 .profile__edit-button:hover {

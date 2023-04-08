@@ -1,7 +1,7 @@
 .profile__avatar-btn {
-  background-image: url("../../../images/avatar-edit-btn.svg");
   width: 120px;
   height: 120px;
+  background-image: url("../../../images/avatar-edit-btn.svg");
   border-radius: 50%;
   position: absolute;
   opacity: 0;

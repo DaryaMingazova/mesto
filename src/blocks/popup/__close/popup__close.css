@@ -1,10 +1,10 @@
 .popup__close {
+  margin: 0;
+  padding: 0;
   width: 32px;
   height: 32px;
   background: transparent url(../../../images/close-icn.svg) center no-repeat;
   border: none;
-  margin: 0;
-  padding: 0;
   cursor: pointer;
   transition: 0.3s ease;
   position: absolute;
